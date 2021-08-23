@@ -22,7 +22,6 @@ public class Transaction {
 	private Long id;
 
 	private Long customerId;
-
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date transactionDate;
 

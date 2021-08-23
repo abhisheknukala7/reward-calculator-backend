@@ -37,10 +37,10 @@ public class RewardService {
 	 * @return the cust transaction history
 	 */
 	public TransactionHistory getCustTransactionHistory(Long customerId, Integer year, Integer month) {
-		List<Transaction> transactions = transactionRepo.findAllByMonthAndYear(customerId, year, month);
+		List<Transaction> transactions = transactionRepo.findAllByMonthAndYear(customerId, year, month);	
 		Long total = 0l;
 		for (Transaction transaction : transactions) {
-			Long rwdPoints = rewardCalculation(total);
+			Long rwdPoints = rewardCalculation(transaction.getTotal());
 			transaction.setPoints(rwdPoints);
 			total += rwdPoints;
 		}

@@ -3,6 +3,7 @@ package com.rewards;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rewards.client.RewardsRestClient;
@@ -22,7 +23,7 @@ public class RewardsController implements RewardsRestClient {
 	}
 
 	@Override
-	public TransactionHistory getTransactionHistory(Long customerId, Integer year, Integer month) {
+	public TransactionHistory getTransactionHistory(@PathVariable Long customerId, @PathVariable Integer year, @PathVariable Integer month) {
 		return rewardService.getCustTransactionHistory(customerId, year, month);
 	}
 
